@@ -1,0 +1,620 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"print",
+				"print_to_output	function"
+			],
+			[
+				"s",
+				"strptime	function"
+			],
+			[
+				"date",
+				"DateTime"
+			],
+			[
+				"Date",
+				"datetime	module"
+			],
+			[
+				"wor",
+				"work_line	param"
+			],
+			[
+				"ziproopa",
+				"ZipRootPath"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "src/input.py",
+			"settings":
+			{
+				"buffer_size": 2391,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "data/log.md",
+			"settings":
+			{
+				"buffer_size": 1049,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "Custom HTML generator",
+	"command_palette":
+	{
+		"height": 369.0,
+		"selected_items":
+		[
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"bash",
+				"Set Syntax: Shell Script (Bash)"
+			],
+			[
+				"java",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"text",
+				"Set Syntax: Plain Text"
+			],
+			[
+				"in",
+				"Package Control: Install Package"
+			],
+			[
+				"package",
+				"Package Control: Install Package"
+			],
+			[
+				"package control install package",
+				"Package Control: Install Package"
+			],
+			[
+				"syntaxmd",
+				"Set Syntax: Markdown"
+			],
+			[
+				"ssc",
+				"Set Syntax: C++"
+			],
+			[
+				"ssc++",
+				"Set Syntax: C++"
+			],
+			[
+				"ssmd",
+				"Set Syntax: Markdown"
+			],
+			[
+				"ssmmd",
+				"Set Syntax: MultiMarkdown"
+			],
+			[
+				"ss:mar",
+				"Set Syntax: Markdown"
+			]
+		],
+		"width": 593.0
+	},
+	"console":
+	{
+		"height": 139.0,
+		"history":
+		[
+			"build $File",
+			"build make",
+			"build",
+			"move",
+			"print(\"a\")",
+			"print(a)",
+			"print a\\n",
+			"print a",
+			"prin",
+			"help",
+			"print 'a';",
+			"print 'a'",
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by) ",
+			"mport urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by) "
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/home/miguel/Documents/Worklog",
+		"/home/miguel/Documents/Worklog/data"
+	],
+	"file_history":
+	[
+		"/data/workspaces/codice1/01nerva/build/default.build",
+		"/data/workspaces/codice1/01nerva/build/plastic_installers.build",
+		"/home/miguel/Documents/Worklog/build.sh",
+		"/home/miguel/Documents/Worklog/worklog.sublime-project",
+		"/opt/plastic/server/users.conf",
+		"/home/miguel/Documents/Worklog/index.html",
+		"/home/miguel/Documents/Worklog/sample.html",
+		"/home/miguel/Documents/Worklog/index.md",
+		"/home/miguel/Documents/Worklog/markdown.css",
+		"/home/miguel/Documents/Worklog/input.py",
+		"/home/miguel/Documents/Worklog/log.md",
+		"/home/miguel/.config/sublime-text-3/Packages/Markdown Preview/MarkdownPreview.sublime-settings",
+		"/home/miguel/Documents/Worklog/log2.md",
+		"/home/miguel/Documents/Worklog/processed.log",
+		"/home/miguel/Documents/Worklog/apply_headers.txt",
+		"/home/miguel/.config/sublime-text-3/Packages/User/Anaconda.sublime-settings",
+		"/home/miguel/.config/sublime-text-3/Packages/Anaconda/Anaconda.sublime-settings",
+		"/data/workspaces/codice1/02nervathirdparty/obs/semantic/semanticmerge.spec",
+		"/home/miguel/docker/plastic/loader.log.conf",
+		"/home/miguel/docker/plastic/Dockerfile",
+		"/data/workspaces/codice1/02nervathirdparty/obs/semantic/semanticmerge.dsc",
+		"/data/workspaces/codice1/02nervathirdparty/obs/release_version.sh",
+		"/data/workspaces/codice1/02nervathirdparty/obs/semantic/semanticmerge-_version_.dsc",
+		"/data/workspaces/codice1/02nervathirdparty/obs/semantic/semanticmerge-_version_.spec",
+		"/data/workspaces/codice1/02nervathirdparty/obs/generate_version.sh",
+		"/home/miguel/fix_vmware.sh",
+		"/home/miguel/osc/plasticrepos/5.4-testing/plasticscm-server-complete-5.4.16.634/plasticscm-server-complete-5.4.16.634.dsc",
+		"/home/miguel/osc/plasticrepos/5.4-testing/plasticscm-server-complete-5.4.16.634/debian.control",
+		"/home/miguel/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
+		"/home/miguel/osc/plasticrepos/5.4/plasticscm-client-gtk-5.4.16.630/debian.rules",
+		"/home/miguel/osc/plasticrepos/5.4/plasticscm-client-gtk-5.4.16.630/plasticscm-client-gtk-5.4.16.630.spec",
+		"/data/workspaces/codice1/01nerva/src/client/gtkplastic/gtkplastic.csproj",
+		"/data/workspaces/codice1/devops/src/ultron/server/linuxconf/ultron/opensuse/ultron",
+		"/data/workspaces/cmdrunner/ignore.conf",
+		"/data/workspaces/cmdrunner/README.md",
+		"/home/miguel/.config/sublime-text-3/Packages/User/Plain text.sublime-settings",
+		"/home/miguel/subversion-plugin/src/main/resources/hudson/scm/SubversionSCM/config.jelly",
+		"/home/miguel/osc/plasticrepos/5.4/plasticscm-client-5.4.16.628/txt",
+		"/home/miguel/.ssh/id_rsa.pub",
+		"/home/miguel/subversion-plugin/src/main/resources/hudson/scm/SubversionChangeLogSet/digest.jelly",
+		"/data/workspaces/codice1/01nerva/src/client/basecommands/bidirectionalsync/foreign/ForeignScm2010.csproj",
+		"/home/miguel/osc/plasticrepos/5.4/plasticscm-client-5.4.16.628/txt2",
+		"/home/miguel/subversion-plugin/src/main/resources/hudson/scm/SubversionSCM/ModuleLocation/config.jelly",
+		"/home/miguel/subversion-plugin/src/main/java/hudson/scm/SubversionSCM.java",
+		"/home/miguel/subversion-plugin/src/main/java/hudson/scm/SVNRevisionState.java",
+		"/home/miguel/subversion-plugin/src/main/resources/hudson/scm/SubversionSCM/config_es.properties",
+		"/home/miguel/gtkplastic.desktop",
+		"/home/miguel/plastic.desktop",
+		"/home/miguel/Desktop/stack.txt",
+		"/srv/repos/depends/ubuntu/download",
+		"/home/miguel/depends/debian/download",
+		"/home/miguel/depends/fedora20/download",
+		"/home/miguel/depends/fedora20/64/repodata/sec",
+		"/home/miguel/depends/fedora20/32/repodata/sec",
+		"/home/miguel/osc/plasticrepos/5.0/gtk-sharp-2.12.21/debian.rules",
+		"/home/miguel/depends/debian/reduced3",
+		"/home/miguel/depends/debian/reduced2",
+		"/home/miguel/depends/debian/reduced21",
+		"/home/miguel/depends/debian/Packages",
+		"/data/workspaces/encoding2/actual/sample.txt",
+		"/data/workspaces/encoding2/actual/actualcontent.txt",
+		"/data/wk2/README.md",
+		"/home/miguel/osc/plasticrepos/5.4/plasticscm-client-5.4.14.599/debian.rules",
+		"/home/miguel/osc/plasticrepos/5.4/plasticscm-client-5.4.14.599/debian.control",
+		"/home/miguel/osc/plasticrepos/5.4/plasticscm-client-5.4.14.599/plasticscm-client-5.4.14.599.spec",
+		"/home/miguel/osc/plasticrepos/5.4/plasticscm-client-gtk-5.4.16.699/client/scripts/gtkplastic",
+		"/home/miguel/osc/plasticrepos/5.4/plasticscm-client-gtk-5.4.16.699/client/scripts/mono_setup",
+		"/home/miguel/.config/sublime-text-3/Packages/Default/Preferences.sublime-settings",
+		"/home/miguel/giteol2/utf16/utf16le.lf.txt",
+		"/data/workspaces/encoding2/utf16le.lf.txt",
+		"/data/workspaces/encoding2/utf16be.lf.txt",
+		"/data/workspaces/encoding2/utf32be.lf.txt",
+		"/data/workspaces/encoding2/utf8.lf.txt",
+		"/data/workspaces/encoding2/actual/actual.txt",
+		"/data/workspaces/encoding2/actual/utf16be.lf.txt",
+		"/home/miguel/giteol2/giteol/eols/utf32/utf32be.crlf.txt",
+		"/home/miguel/giteol2/giteol/eols/utf32/utf32be.cr.txt",
+		"/home/miguel/giteol2/giteol/eols/utf32/utf32be.lf.txt",
+		"/home/miguel/giteol2/giteol/eols/utf32/utf32le.crlf.txt",
+		"/home/miguel/giteol2/giteol/eols/utf32/utf32le.cr.txt",
+		"/home/miguel/giteol2/giteol/eols/utf32/utf32le.lf.txt",
+		"/data/workspaces/eols/utf32/crlf.utf32.txt",
+		"/data/workspaces/eols/utf32/cr.utf32.txt",
+		"/data/workspaces/eols/utf32/lf.utf32.txt",
+		"/data/workspaces/eols/utf16/lf.utf16.txt",
+		"/data/workspaces/eols/utf16/cr.utf16.txt",
+		"/data/workspaces/eols/utf16/crlf.utf16.txt",
+		"/data/workspaces/eols/utf8/cr.ascii.txt",
+		"/data/workspaces/eols/lf.ascii.txt",
+		"/home/miguel/git/combine-diff.c",
+		"/home/miguel/git/builtin/commit.c",
+		"/home/miguel/git/commit.c",
+		"/home/miguel/git/convert.c",
+		"/home/miguel/git/t/t0020-crlf.sh",
+		"/home/miguel/git/t/t0022-crlf-rename.sh",
+		"/home/miguel/git/t/t5700-clone-reference.sh",
+		"/home/miguel/git/command-list.txt",
+		"/home/miguel/git/COPYING",
+		"/home/miguel/Documents/eol_conversion.txt",
+		"/home/miguel/.config/sublime-text-3/Packages/User/Default (Linux).sublime-keymap",
+		"/home/miguel/.cache/.fr-Gz27zv/side_bar.py",
+		"/home/miguel/.config/sublime-text-3/Packages/Default/Default (Linux).sublime-keymap",
+		"/tmp/filezilla/src/tinyxml/Makefile.am",
+		"/tmp/filezilla/docs/todo.txt",
+		"/tmp/filezilla/m4/check_libc++.m4",
+		"/tmp/filezilla/src/include/engine_context.h",
+		"/tmp/filezilla/src/engine/directorylistingparser.cpp",
+		"/tmp/filezilla/src/include/engineprivate.h",
+		"/tmp/filezilla/src/include/FileZillaEngine.h",
+		"/tmp/filezilla/src/engine/FileZillaEngine.cpp",
+		"/tmp/filezilla/src/engine/logging_private.h",
+		"/tmp/filezilla/src/interface/loginmanager.h",
+		"/tmp/filezilla/src/interface/loginmanager.cpp",
+		"/tmp/filezilla/src/interface/statuslinectrl.h",
+		"/tmp/filezilla/src/interface/statuslinectrl.cpp",
+		"/tmp/filezilla/src/interface/locale_initializer.h",
+		"/tmp/filezilla/src/interface/locale_initializer.cpp",
+		"/tmp/filezilla/src/putty/cmdline.c",
+		"/tmp/filezilla/src/interface/cmdline.h",
+		"/tmp/filezilla/src/interface/cmdline.cpp",
+		"/tmp/filezilla/m4/libgnutls.m4",
+		"/tmp/filezilla/locales/el.po",
+		"/tmp/filezilla/src/engine/option_change_event_handler.cpp",
+		"/tmp/filezilla/src/engine/event_loop.cpp"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"installerdir",
+			"createinstaller",
+			".markdown-body ",
+			"file_path",
+			"linux-server-co",
+			"preparezipinstallers",
+			"linux-server-core",
+			"plastic.exe",
+			"PlasticSCM-5.0",
+			"gtkplastic.exe",
+			"PlasticSCM-5.4",
+			"gtkplastic",
+			"tar.gz",
+			".* ",
+			"libgtk2.0-cil",
+			"ibgtk2.0-cil-dev",
+			"gdip",
+			"libgtk2.0-cil-dev",
+			"libgdiplus",
+			"libgtk2.0-cil",
+			"libmono-system-dra",
+			"getRevisionFile\\(",
+			"parseRevisionFile\\(",
+			"revisionfrom",
+			"BUILD_NOW",
+			"descriptorimpl",
+			"ModuleLocation",
+			"modulelocation",
+			"Add module...",
+			"override",
+			"this.",
+			"modul",
+			"Añadir",
+			"Additional Credentials",
+			" .*",
+			"nothing provides ",
+			", ",
+			"\\)",
+			")",
+			"pkgconfig\\(",
+			"::",
+			" .*",
+			", ",
+			"nothing provides ",
+			"\\n<location href=\"",
+			"\"/>",
+			"</name>",
+			"  <name>",
+			"\\n<location href=\"",
+			"\"/>",
+			"</name>",
+			"  <name>",
+			"dev",
+			" .*",
+			"nothing provides ",
+			", ",
+			"\\nftp.es",
+			" .*",
+			"nothing provides ",
+			", ",
+			" [=>][^,]*",
+			"needed by[^,]*",
+			"nothing provides ",
+			",",
+			" [=>]. [^,]*",
+			" [=>] [^,]*,",
+			" needed by[^,]*",
+			"nothing provides ",
+			"\\n",
+			" .*$",
+			"nothing provides ",
+			", ",
+			"line",
+			"convert_to_git",
+			"crlf_to_git",
+			"clrf_to_git",
+			"normalize",
+			"eol",
+			"q",
+			"p",
+			" +$",
+			"                                                                                ",
+			"                                                                               ",
+			"                                                                              ",
+			"                                                                             ",
+			"                                                                            ",
+			"                                                                           ",
+			"                                                                          ",
+			"                                                                         ",
+			"                                                                        ",
+			"                                                                       ",
+			"                                                                      ",
+			"                                                                     ",
+			"                                                                    ",
+			"                                                                   ",
+			"                                                                  ",
+			"                                                                 ",
+			"                                                                ",
+			"                                                               ",
+			"                                                              ",
+			"                                                             ",
+			"                                                            ",
+			" +$",
+			"                                                                           ",
+			"                                                                          ",
+			"                                                                         ",
+			"                                                                        ",
+			"                                                                       ",
+			"                                                                      ",
+			"                                                                     ",
+			"                                                                    ",
+			"                                                                   ",
+			"                                                                  ",
+			"                                                                 ",
+			"                                                                ",
+			"                                                               ",
+			"                                                              ",
+			"                                                             ",
+			"                                                            ",
+			"                                                            \n",
+			"                                                            ",
+			">---",
+			"SetError",
+			"\n>--->---",
+			">---",
+			">---{                                                                           ",
+			"\n>---{",
+			">---"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": true,
+		"replace_history":
+		[
+			"",
+			"FILE_PATH",
+			"",
+			"\\n",
+			"",
+			"-",
+			"",
+			"\\n",
+			"",
+			":",
+			"",
+			":",
+			"",
+			"\\n",
+			":ftp.es",
+			"",
+			"\\n",
+			"",
+			" ",
+			"",
+			"\\n",
+			"p"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "src/input.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2391,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								241,
+								241
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "data/log.md",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1049,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								111,
+								111
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/MarkdownEditing/Markdown.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 25.0
+	},
+	"input":
+	{
+		"height": 33.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.anaconda_documentation":
+	{
+		"height": 112.0
+	},
+	"output.exec":
+	{
+		"height": 112.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.markdown":
+	{
+		"height": 112.0
+	},
+	"project": "worklog.sublime-project",
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 158.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

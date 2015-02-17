@@ -1,0 +1,4 @@
+/www/*.html
+/data/*.md
+__pycache__
+.*.swp

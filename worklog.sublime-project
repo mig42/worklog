@@ -1,0 +1,21 @@
+{
+	"build_systems":
+	[
+		{
+			"file_regex": "^[ ]*File \"(...*?)\", line ([0-9]*)",
+			"name": "Custom HTML generator",
+			"shell_cmd": "${project_path}/build.sh"
+		}
+	],
+	"folders":
+	[
+		{
+			"file_exclude_patterns":
+			[
+				"apply_headers.txt"
+			],
+			"follow_symlinks": true,
+			"path": "."
+		}
+	]
+}
