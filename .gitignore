@@ -1,4 +1,5 @@
 /www/*.html
 /data/*.md
 __pycache__
+*.sublime-workspace
 .*.swp
