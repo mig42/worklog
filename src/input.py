@@ -2,18 +2,10 @@
 """Simple worklog parser"""
 
 import constants
-import re
 import sys
 
-from datetime import datetime, date
+from datetime import datetime
 from os import path
-
-TASK_RE = re.compile('^[1-9][0-9]*:')
-
-TASK_LINE_FORMAT = \
-    "* {{}} > [__{{}}__]({}) _({{:%H:%M}} - {{:%H:%M}})_".format(constants.TRACKER_TASK_URL)
-
-NON_TASK_LINE_FORMAT = "* {} > __{}__ _({:%H:%M} - {:%H:%M})_"
 
 def main():
     if len(sys.argv) < 2:
@@ -38,9 +30,9 @@ def is_verbatim_line(line):
     return line.startswith("## ") or line.startswith("% ")
 
 def split_work_line(work_line):
-    date_part, message = work_line[2:].strip().split(" - ", 1)
-    start_time, end_time = date_part.split(" -> ", 1)
-    message = message.strip("*_")
+    date_part, message = work_line[2:].strip().split(constants.WORK_MESSAGE_SEPARATOR, 1)
+    start_time, end_time = date_part.split(constants.HOUR_INTERVAL_SEPARATOR, 1)
+    message = message.strip("*_ ")
 
     return (start_time, end_time, message)
 
@@ -66,8 +58,8 @@ class WorklogParser:
         return None
 
     def parse_day(self, day_line):
-        self._current_day = datetime.strptime(day_line[4:14], "%Y-%m-%d")
-        return "### {:%A, %d %B %Y}".format(self._current_day)
+        self._current_day = datetime.strptime(day_line[4:14], constants.DATE_PARSE_FORMAT)
+        return constants.DAY_LINE_FORMAT.format(self._current_day)
 
     def parse_work(self, work_line):
         start_time_text, end_time_text, message = split_work_line(work_line)
@@ -75,11 +67,11 @@ class WorklogParser:
         end_time = self.build_date(end_time_text)
         elapsed_time = timedelta_str(end_time - start_time)
 
-        if not TASK_RE.match(message):
-            return NON_TASK_LINE_FORMAT.format(elapsed_time, message, start_time, end_time)
+        if not constants.TASK_RE.match(message):
+            return constants.NON_TASK_LINE_FORMAT.format(elapsed_time, message, start_time, end_time)
 
         task_id, task_name = message.split(":", 1)
-        return TASK_LINE_FORMAT.format(
+        return constants.TASK_LINE_FORMAT.format(
             elapsed_time, task_name.strip(), task_id, start_time, end_time)
 
     def build_date(self, time):
