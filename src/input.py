@@ -4,6 +4,7 @@
 import constants
 import sys
 
+from constants import WorkType
 from datetime import datetime
 from os import path
 
@@ -24,14 +25,6 @@ def main():
             if parsed_line is None:
                 continue
             print(parsed_line)
-
-def split_work_line(work_line):
-    date_part, message = work_line[2:].strip().split(constants.WORK_MESSAGE_SEPARATOR, 1)
-    start_time, end_time = date_part.split(constants.HOUR_INTERVAL_SEPARATOR, 1)
-    message = message.strip("*_ ")
-
-    return (start_time, end_time, message)
-
 
 def timedelta_str(timedelta):
     hours, minutes = divmod(timedelta.total_seconds(), 3600)
@@ -78,7 +71,7 @@ class WorklogParser:
         return self.get_title_line("###", date_text, text)
 
     def parse_work(self, work_line):
-        start_time_text, end_time_text, message = split_work_line(work_line)
+        start_time_text, end_time_text, message, work_type = self.split_work_line(work_line)
         start_time = self.build_date(start_time_text)
         end_time = self.build_date(end_time_text)
         elapsed_time = timedelta_str(end_time - start_time)
@@ -88,7 +81,22 @@ class WorklogParser:
 
         task_id, task_name = message.split(":", 1)
         return constants.TASK_LINE_FORMAT.format(
-            elapsed_time, task_name.strip(), task_id, start_time, end_time)
+            elapsed_time, self.get_work_type_text(work_type), task_name.strip(),
+            task_id, start_time, end_time)
+
+    def split_work_line(self, work_line):
+        date_part, message = work_line[2:].strip().split(constants.WORK_MESSAGE_SEPARATOR, 1)
+        start_time, end_time = date_part.split(constants.HOUR_INTERVAL_SEPARATOR, 1)
+        message, work_type = self.parse_message(message.strip("*_ "))
+
+        return (start_time, end_time, message, work_type)
+
+    def parse_message(self, message):
+        if message.endswith("[v]"):
+            return message[:-3], WorkType.validator
+        if message.endswith == "[r]":
+            return message[:-3], WorkType.reviewer
+        return message, WorkType.developer
 
     def build_date(self, time):
         try:
@@ -96,6 +104,13 @@ class WorklogParser:
             return datetime.strptime(date_string, "%Y-%m-%d %H:%M")
         except ValueError:
             return datetime.now()
+
+    def get_work_type_text(self, work_type):
+        if work_type == WorkType.reviewer:
+            return constants.REVIEW
+        if work_type == WorkType.validator:
+            return constants.VALIDATE
+        return constants.DEVELOP
 
 
 if __name__ == "__main__":
