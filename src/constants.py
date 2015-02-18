@@ -22,6 +22,8 @@ DEVELOP = ""
 REVIEW = "Review "
 VALIDATE = "Validate "
 
+PASSWORD_FILE_NAME = "passwd"
+
 class WorkType(Enum):
     developer = 1
     reviewer = 2
