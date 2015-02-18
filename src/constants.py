@@ -8,7 +8,7 @@ TASK_DELIMITER = ':'
 HOUR_INTERVAL_SEPARATOR = " -> "
 WORK_MESSAGE_SEPARATOR = " - "
 
-DAY_LINE_FORMAT = "### {:%A, %d %B %Y}"
+DAY_LINE_FORMAT = "{:%A, %d %B %Y}"
 DATE_PARSE_FORMAT = "%Y-%m-%d"
 
 TRACKER_TASK_URL = "http://juno.codicefactory.com/tts/visualize.php?iddefect={}"

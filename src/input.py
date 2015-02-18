@@ -25,16 +25,13 @@ def main():
                 continue
             print(parsed_line)
 
-
-def is_verbatim_line(line):
-    return line.startswith("## ") or line.startswith("% ")
-
 def split_work_line(work_line):
     date_part, message = work_line[2:].strip().split(constants.WORK_MESSAGE_SEPARATOR, 1)
     start_time, end_time = date_part.split(constants.HOUR_INTERVAL_SEPARATOR, 1)
     message = message.strip("*_ ")
 
     return (start_time, end_time, message)
+
 
 def timedelta_str(timedelta):
     hours, minutes = divmod(timedelta.total_seconds(), 3600)
@@ -49,7 +46,11 @@ class WorklogParser:
 
     def parse_line(self, line):
         clean_line = line.strip()
-        if is_verbatim_line(clean_line):
+        if clean_line.startswith("# "):
+            return self.parse_title(clean_line)
+        if clean_line.startswith("## "):
+            return self.parse_month(clean_line)
+        if self.is_verbatim_line(clean_line):
             return line
         if clean_line.startswith("### "):
             return "\n" + self.parse_day(clean_line)
@@ -57,9 +58,24 @@ class WorklogParser:
             return self.parse_work(clean_line)
         return None
 
+    def is_verbatim_line(self, line):
+        return line.startswith("% ")
+
+    def parse_title(self, line):
+        return self.get_title_line("#", line[2:5].lower(), line[2:])
+
+    def parse_month(self, line):
+        return self.get_title_line("##", line[3:6].lower(), line[3:])
+
+    def get_title_line(self, title_mark, anchor_id, text):
+        return "{0} <a id=\"{1}\" class=\"anchor\" href=\"#{1}\" aria-hidden=\"true\">\
+<span class=\"octicon octicon-link\"></span></a>{2}".format(title_mark, anchor_id, text)
+
     def parse_day(self, day_line):
-        self._current_day = datetime.strptime(day_line[4:14], constants.DATE_PARSE_FORMAT)
-        return constants.DAY_LINE_FORMAT.format(self._current_day)
+        date_text = day_line[4:14]
+        self._current_day = datetime.strptime(date_text, constants.DATE_PARSE_FORMAT)
+        text = constants.DAY_LINE_FORMAT.format(self._current_day)
+        return self.get_title_line("###", date_text, text)
 
     def parse_work(self, work_line):
         start_time_text, end_time_text, message = split_work_line(work_line)
