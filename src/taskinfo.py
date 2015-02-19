@@ -14,8 +14,6 @@ def main():
         print("Usage: {} <task_id>".format(sys.argv[0]), file=sys.stderr)
         sys.exit(1)
 
-    task_id = sys.argv[1]
-
     passwd_file_path = os.path.join(get_current_dir(), constants.PASSWORD_FILE_NAME)
 
     if not os.path.exists(passwd_file_path):
@@ -25,7 +23,8 @@ def main():
     authstring = parse_password_file(passwd_file_path)
 
     retriever = TaskDataRetriever(constants.TRACKER_TASK_URL, authstring)
-    print(retriever.get_remaining_task_time(task_id))
+    for task_id in sys.argv[1:]:
+        print(retriever.get_remaining_task_time(task_id))
 
 def get_current_dir():
     return os.path.dirname(os.path.abspath(__file__))
@@ -47,15 +46,20 @@ class TaskDataRetriever:
     def __init__(self, base_url, authstring):
         self._base_url = base_url
         self._authstring = authstring.strip()
+        self._value_cache = {}
 
     def get_remaining_task_time(self, task_id):
+        if task_id in self._value_cache.keys():
+            return self._value_cache[task_id]
+
         parser = TaskPageParser()
 
         request = self.get_request(task_id)
         with urllib.request.urlopen(request) as http_conn:
             try:
                 parser.feed(http_conn.read().decode("utf8"))
-                return parser.get_remaining_task_time()
+                self._value_cache[task_id] = parser.get_remaining_task_time()
+                return self._value_cache[task_id]
             finally:
                 parser.close()
 
