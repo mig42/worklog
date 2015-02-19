@@ -15,14 +15,12 @@ DATE_PARSE_FORMAT = "%Y-%m-%d"
 
 TRACKER_TASK_URL = "http://juno.codicefactory.com/tts/visualize.php?iddefect={}"
 
-TASK_LINE_FORMAT = "* {} > __{}[{}](" + TRACKER_TASK_URL + ")__ _({:%H:%M} - {:%H:%M})_"
+TASK_LINE_FORMAT = "* {} > __{}[{}](" + TRACKER_TASK_URL + ")__ _({:%H:%M} - {:%H:%M})_\n    * __{}__ hours remaining"
 NON_TASK_LINE_FORMAT = "* {} > __{}__ _({:%H:%M} - {:%H:%M})_"
 
 DEVELOP = ""
 REVIEW = "Review "
 VALIDATE = "Validate "
-
-PASSWORD_FILE_NAME = "passwd"
 
 REMAINING_HOURS_TITLE = "Estimated remaining hours"
 

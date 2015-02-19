@@ -3,6 +3,7 @@
 
 import constants
 import sys
+import taskinfo
 
 from constants import WorkType
 from datetime import datetime
@@ -36,6 +37,7 @@ class WorklogParser:
 
     def __init__(self):
         self._current_day = datetime.today()
+        self._task_parser = taskinfo.TaskDataRetriever(constants.TRACKER_TASK_URL)
 
     def parse_line(self, line):
         clean_line = line.strip()
@@ -82,7 +84,7 @@ class WorklogParser:
         task_id, task_name = message.split(":", 1)
         return constants.TASK_LINE_FORMAT.format(
             elapsed_time, self.get_work_type_text(work_type), task_name.strip(),
-            task_id, start_time, end_time)
+            task_id, start_time, end_time, self._task_parser.get_remaining_task_time(task_id))
 
     def split_work_line(self, work_line):
         date_part, message = work_line[2:].strip().split(constants.WORK_MESSAGE_SEPARATOR, 1)

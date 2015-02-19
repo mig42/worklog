@@ -14,39 +14,38 @@ def main():
         print("Usage: {} <task_id>".format(sys.argv[0]), file=sys.stderr)
         sys.exit(1)
 
-    passwd_file_path = os.path.join(get_current_dir(), constants.PASSWORD_FILE_NAME)
-
-    if not os.path.exists(passwd_file_path):
-        print("Password file {} couldn't be found.".format(passwd_file_path), file=sys.stderr)
-        sys.exit(1)
-
-    authstring = parse_password_file(passwd_file_path)
-
-    retriever = TaskDataRetriever(constants.TRACKER_TASK_URL, authstring)
+    retriever = TaskDataRetriever(constants.TRACKER_TASK_URL)
     for task_id in sys.argv[1:]:
         print(retriever.get_remaining_task_time(task_id))
 
-def get_current_dir():
-    return os.path.dirname(os.path.abspath(__file__))
+class AuthManager:
 
-def parse_password_file(password_file_path):
-    with open(password_file_path, 'r') as passwd_file:
-        lines = [line.strip() for line in passwd_file]
-    if len(lines) < 1:
-        return ""
-    return lines[0]
+    PASSWORD_FILE_NAME = "passwd"
 
-def test(task_id, authstring):
-    retriever = TaskDataRetriever(constants.TRACKER_TASK_URL, authstring)
-    print(retriever.get_remaining_task_time(task_id))
+    def get_authstring(self):
+        return self.parse_password_file(self.get_password_file_path())
+
+    def get_password_file_path(self):
+        current_dir = os.path.dirname(os.path.abspath(__file__))
+        return os.path.join(current_dir, self.PASSWORD_FILE_NAME)
+
+    def parse_password_file(self, password_file_path):
+        if not os.path.exists(password_file_path):
+            raise IOError("Password file {} couldn't be found.".format(password_file_path))
+
+        with open(password_file_path, 'r') as passwd_file:
+            lines = [line.strip() for line in passwd_file]
+        if len(lines) < 1:
+            return ""
+        return lines[0].strip()
 
 
 class TaskDataRetriever:
 
-    def __init__(self, base_url, authstring):
+    def __init__(self, base_url):
         self._base_url = base_url
-        self._authstring = authstring.strip()
         self._value_cache = {}
+        self._auth_manager = AuthManager()
 
     def get_remaining_task_time(self, task_id):
         if task_id in self._value_cache.keys():
@@ -63,10 +62,9 @@ class TaskDataRetriever:
             finally:
                 parser.close()
 
-
     def get_request(self, task_id):
         request = urllib.request.Request(self._base_url.format(task_id))
-        base64string = base64.b64encode(bytes(self._authstring, "utf8"))
+        base64string = base64.b64encode(bytes(self._auth_manager.get_authstring(), "utf8"))
         request.add_header("Authorization", b'Basic ' + base64string)
         return request
 
