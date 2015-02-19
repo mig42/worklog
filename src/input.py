@@ -6,7 +6,7 @@ import sys
 import taskinfo
 
 from constants import WorkType
-from datetime import datetime
+from datetime import datetime, timedelta
 from os import path
 
 def main():
@@ -27,8 +27,10 @@ def main():
                 continue
             print(parsed_line)
 
-def timedelta_str(timedelta):
-    hours, minutes = divmod(timedelta.total_seconds(), 3600)
+def timedelta_str(my_timedelta):
+    if my_timedelta < timedelta(0):
+        return "00:00"
+    hours, minutes = divmod(my_timedelta.total_seconds(), 3600)
     minutes, seconds = divmod(minutes, 60)
 
     return "{:02}:{:02}".format(int(hours), int(minutes))
@@ -74,16 +76,16 @@ class WorklogParser:
 
     def parse_work(self, work_line):
         start_time_text, end_time_text, message, work_type = self.split_work_line(work_line)
-        start_time = self.build_date(start_time_text)
-        end_time = self.build_date(end_time_text)
-        elapsed_time = timedelta_str(end_time - start_time)
+
+        start_time, end_time = self.get_times(start_time_text, end_time_text)
+        elapsed_time = end_time - start_time
 
         if not constants.TASK_RE.match(message):
-            return constants.NON_TASK_LINE_FORMAT.format(elapsed_time, message, start_time, end_time)
+            return constants.NON_TASK_LINE_FORMAT.format(timedelta_str(elapsed_time), message, start_time, end_time)
 
         task_id, task_name = message.split(":", 1)
         return constants.TASK_LINE_FORMAT.format(
-            elapsed_time, self.get_work_type_text(work_type), task_name.strip(),
+            timedelta_str(elapsed_time), self.get_work_type_text(work_type), task_name.strip(),
             task_id, start_time, end_time, self._task_parser.get_remaining_task_time(task_id))
 
     def split_work_line(self, work_line):
@@ -92,6 +94,14 @@ class WorklogParser:
         message, work_type = self.parse_message(message.strip("*_ "))
 
         return (start_time, end_time, message, work_type)
+
+    def get_times(self, start_time_text, end_time_text):
+        start_time = self.build_date(start_time_text)
+        end_time = self.build_date(end_time_text)
+
+        if start_time > end_time:
+            return start_time, start_time
+        return start_time, end_time
 
     def parse_message(self, message):
         if message.endswith("[v]"):
