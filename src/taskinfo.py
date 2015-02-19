@@ -6,6 +6,8 @@ import os
 import sys
 import urllib.request
 
+from html.parser import HTMLParser
+
 
 def main():
     if len(sys.argv) < 2:
@@ -47,15 +49,56 @@ class TaskDataRetriever:
         self._authstring = authstring.strip()
 
     def get_remaining_task_time(self, task_id):
+        parser = TaskPageParser()
+
         request = self.get_request(task_id)
         with urllib.request.urlopen(request) as http_conn:
-            return http_conn.read()
+            try:
+                parser.feed(http_conn.read().decode("utf8"))
+                return parser.get_remaining_task_time()
+            finally:
+                parser.close()
+
 
     def get_request(self, task_id):
         request = urllib.request.Request(self._base_url.format(task_id))
         base64string = base64.b64encode(bytes(self._authstring, "utf8"))
         request.add_header("Authorization", b'Basic ' + base64string)
         return request
+
+class TaskPageParser(HTMLParser):
+
+    def __init__(self):
+        super(TaskPageParser, self).__init__()
+        self._remaining_task_time = 0
+        self._previous_data = ""
+        self._current_tag_class = None
+        self._is_finished = False
+
+    def handle_starttag(self, tag, attrs):
+        self._current_tag_class = (tag, self.get_tag_class(attrs))
+
+    def get_tag_class(self, attrs):
+        for attr in attrs:
+            if attr[0] == "class":
+                return attr[1]
+        return ""
+
+    def handle_data(self, data):
+        if self._is_finished:
+            return
+
+        if self._previous_data == constants.REMAINING_HOURS_TITLE:
+            if self._current_tag_class == ("td", "tableFieldContent"):
+                self._remaining_task_time = float(data.strip())
+                self._is_finished = True
+            return
+        self._previous_data = data.strip()
+
+    def get_remaining_task_time(self):
+        if self._remaining_task_time < 0:
+            return 0
+        return self._remaining_task_time
 
 
 if __name__ == "__main__":

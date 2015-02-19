@@ -24,6 +24,8 @@ VALIDATE = "Validate "
 
 PASSWORD_FILE_NAME = "passwd"
 
+REMAINING_HOURS_TITLE = "Estimated remaining hours"
+
 class WorkType(Enum):
     developer = 1
     reviewer = 2
