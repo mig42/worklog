@@ -693,4 +693,19 @@
   color: #e2471b;
   font-size: 16px;
   font-weight: bold;
+  width: 24px;
+  height: 24px;
+  margin-left: 10px;
+}
+
+.input-submit input:active {
+  border: 0px none #9ecaed;
+  background-color: #D6E3EE;
+  box-shadow: 0 0 5px #93caed;
+  outline:0 !important;
+}
+
+.input-submit input::-moz-focus-inner {
+  border: 0;
+  outline: 0;
 }
