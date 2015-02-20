@@ -58,5 +58,6 @@ $body$
 $for(include-after)$
 $include-after$
 $endfor$
+<a id="end" />
 </body>
 </html>
