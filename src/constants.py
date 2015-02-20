@@ -22,8 +22,8 @@ TASK_LINE_FORMAT = "* {elapsed} > __{worktype-human}[{message}](" + TRACKER_TASK
 <input type=\"hidden\" name=\"fWorkType\" value=\"{worktype}\"/>\
 <input type=\"hidden\" name=\"fWorkedMinutes\" value=\"{elapsed}\"/>\
 <input type=\"hidden\" name=\"fTimestamp\" value=\"{date}\"/>\
-<input type=\"text\" name=\"fRemainingHours\" size=\"2\" value=\"{remaining}\"/> __hours remaining__\
-<input type=\"submit\" value=\"Apply!\"/></form>"
+<span class=\"input-text\" ><input type=\"text\" name=\"fRemainingHours\" size=\"3\" value=\"{remaining}\"/></span> __hours remaining__\
+<span class=\"input-submit\" ><input class=\"input-submit\" type=\"submit\" value=\"↪\"/></span></form>"
 NON_TASK_LINE_FORMAT = "* {elapsed} > __{message}__ _({start:%H:%M} - {end:%H:%M})_"
 
 DEVELOP = ""
