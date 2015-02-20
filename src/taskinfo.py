@@ -63,7 +63,8 @@ class TaskDataRetriever:
                 parser.close()
 
     def get_request(self, task_id):
-        request = urllib.request.Request(self._base_url.format(task_id))
+        formatted_url = self._base_url.format_map({"taskid": task_id})
+        request = urllib.request.Request(formatted_url)
         base64string = base64.b64encode(bytes(self._auth_manager.get_authstring(), "utf8"))
         request.add_header("Authorization", b'Basic ' + base64string)
         return request

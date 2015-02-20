@@ -13,14 +13,26 @@ WORK_MESSAGE_SEPARATOR = " - "
 DAY_LINE_FORMAT = "{:%A, %d %B %Y}"
 DATE_PARSE_FORMAT = "%Y-%m-%d"
 
-TRACKER_TASK_URL = "http://juno.codicefactory.com/tts/visualize.php?iddefect={}"
+TRACKER_TASK_URL = "http://juno.codicefactory.com/tts/visualize.php?iddefect={taskid}"
+APPLY_WORK_URL = "http://juno.codicefactory.com/tts/applyworkpost.php"
 
-TASK_LINE_FORMAT = "* {} > __{}[{}](" + TRACKER_TASK_URL + ")__ _({:%H:%M} - {:%H:%M})_\n    * __{}__ hours remaining"
-NON_TASK_LINE_FORMAT = "* {} > __{}__ _({:%H:%M} - {:%H:%M})_"
+TASK_LINE_FORMAT = "* {elapsed} > __{worktype-human}[{message}](" + TRACKER_TASK_URL + ")__ _({start:%H:%M} - {end:%H:%M})_\n\
+    * <form method=\"POST\" action=\"" + APPLY_WORK_URL + "\">\
+<input type=\"hidden\" name=\"iddefect\" value=\"{taskid}\" />\
+<input type=\"hidden\" name=\"fWorkType\" value=\"{worktype}\"/>\
+<input type=\"hidden\" name=\"fWorkedMinutes\" value=\"{elapsed}\"/>\
+<input type=\"hidden\" name=\"fTimestamp\" value=\"{date}\"/>\
+<input type=\"text\" name=\"fRemainingHours\" size=\"2\" value=\"{remaining}\"/> __hours remaining__\
+<input type=\"submit\" value=\"Apply!\"/></form>"
+NON_TASK_LINE_FORMAT = "* {elapsed} > __{message}__ _({start:%H:%M} - {end:%H:%M})_"
 
 DEVELOP = ""
 REVIEW = "Review "
 VALIDATE = "Validate "
+
+DEVELOP_CODE = "dev"
+REVIEW_CODE = "rev"
+VALIDATE_CODE = "val"
 
 REMAINING_HOURS_TITLE = "Estimated remaining hours"
 

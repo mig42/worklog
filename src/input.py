@@ -80,13 +80,25 @@ class WorklogParser:
         start_time, end_time = self.get_times(start_time_text, end_time_text)
         elapsed_time = end_time - start_time
 
+        values = {
+            "elapsed": timedelta_str(elapsed_time),
+            "start": start_time,
+            "end": end_time,
+            "message": message,
+        }
+
         if not constants.TASK_RE.match(message):
-            return constants.NON_TASK_LINE_FORMAT.format(timedelta_str(elapsed_time), message, start_time, end_time)
+            return constants.NON_TASK_LINE_FORMAT.format_map(values)
 
         task_id, task_name = message.split(":", 1)
-        return constants.TASK_LINE_FORMAT.format(
-            timedelta_str(elapsed_time), self.get_work_type_text(work_type), task_name.strip(),
-            task_id, start_time, end_time, self._task_parser.get_remaining_task_time(task_id))
+        values["taskid"] = task_id
+        values["message"] = task_name.strip()
+        values["worktype-human"] = self.get_work_type_text(work_type)
+        values["worktype"] = self.get_work_type_code(work_type)
+        values["remaining"] = self._task_parser.get_remaining_task_time(task_id)
+        values["date"] = "{:%Y-%m-%d}".format(self._current_day)
+
+        return constants.TASK_LINE_FORMAT.format_map(values)
 
     def split_work_line(self, work_line):
         date_part, message = work_line[2:].strip().split(constants.WORK_MESSAGE_SEPARATOR, 1)
@@ -123,6 +135,13 @@ class WorklogParser:
         if work_type == WorkType.validator:
             return constants.VALIDATE
         return constants.DEVELOP
+
+    def get_work_type_code(self, work_type):
+        if work_type == WorkType.reviewer:
+            return constants.REVIEW_CODE
+        if work_type == WorkType.validator:
+            return constants.VALIDATE_CODE
+        return constants.DEVELOP_CODE
 
 
 if __name__ == "__main__":
