@@ -118,7 +118,7 @@ class WorklogParser:
     def parse_message(self, message):
         if message.endswith("[v]"):
             return message[:-3], WorkType.validator
-        if message.endswith == "[r]":
+        if message.endswith("[r]"):
             return message[:-3], WorkType.reviewer
         return message, WorkType.developer
 

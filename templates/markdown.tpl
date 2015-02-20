@@ -11,6 +11,7 @@ $if(date-meta)$
   <meta name="date" content="$date-meta$" />
 $endif$
   <link rel="icon" type="image/x-icon" href="/img/favicon.ico" />
+  <link href='http://fonts.googleapis.com/css?family=Droid+Sans+Mono' rel='stylesheet' type='text/css'>
   <title>$if(title-prefix)$$title-prefix$ - $endif$$pagetitle$</title>
   <style type="text/css">code{white-space: pre;}</style>
 $if(quotes)$

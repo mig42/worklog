@@ -664,11 +664,27 @@
 }
 
 .input-text input{
-  border: none;
+  border-width: 2px;
+  border-color: #dadada;
+  border-top-style: none;
+  border-bottom-style: dotted;
+  border-left-style: none;
+  border-right-style: none;
+
+  padding-right: 2px;
+  height: 24px;
+
   color: #e2471b;
-  font-size: 16px;
-  font-style: italic;
+  font-size: 14px;
   text-align: right;
+  font-weight: bold;
+  font-family: 'Droid Sans Mono', monospace;
+}
+
+.input-text input:focus {
+  outline: none;
+  border-color: #9ecaed;
+  box-shadow: 0 0 10px #93caed;
 }
 
 .input-submit input {
