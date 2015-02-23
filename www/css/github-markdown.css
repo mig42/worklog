@@ -710,32 +710,28 @@ input::-moz-focus-inner {
   outline: 0;
 }
 
-.markdown-body .scrollbottom {
+.markdown-body .scroll {
   width: 50px;
   height: 50px;
   opacity: 0.6;
   display: none;
   position: fixed;
-  bottom: 50px;
   right: 100px;
   text-indent: -9999px;
+}
+
+.markdown-body .tobottom {
+  bottom: 50px;
   background: url('/img/go-bottom.png') no-repeat;
   background-size: 50px 50px;  
 }
 
-.markdown-body .scrolltop {
-  width: 50px;
-  height: 50px;
-  opacity: 0.6;
-  display: none;
-  position: fixed;
+.markdown-body .totop {
   top: 50px;
-  right: 100px;
-  text-indent: -9999px;
   background: url('/img/go-top.png') no-repeat;
   background-size: 50px 50px;  
 }
 
-.scrolltop, .scrollbottom {
+.totop, .tobottom {
   outline: 0;
 }

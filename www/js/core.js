@@ -1,18 +1,18 @@
 $(document).ready(function () {
-    fadeScrollTop();
-    fadeScrollBottom();
+    fadeScrollToTop();
+    fadeScrollToBottom();
 
     $(window).scroll(function () {
-        fadeScrollTop();
-        fadeScrollBottom();
+        fadeScrollToTop();
+        fadeScrollToBottom();
     });
-    $('.scrolltop').click(function () {
+    $('.totop').click(function () {
         $("html, body").animate({
             scrollTop: 0
         }, 600);
         return false;
     });
-    $('.scrollbottom').click(function () {
+    $('.tobottom').click(function () {
         $("html, body").animate({
             scrollTop: $(document).height()
         }, 600);
@@ -20,18 +20,18 @@ $(document).ready(function () {
     });
 });
 
-function fadeScrollTop() {
+function fadeScrollToTop() {
     if ($(window).scrollTop() > 100) {
-        $('.scrolltop').fadeIn();
+        $('.totop').fadeIn();
         return;
     }
-    $('.scrolltop').fadeOut();
+    $('.totop').fadeOut();
 }
 
-function fadeScrollBottom() {
+function fadeScrollToBottom() {
     if ($(window).scrollTop() + $(window).height() > $(document).height() - 100) {
-        $('.scrollbottom').fadeOut();
+        $('.tobottom').fadeOut();
         return;
     }
-    $('.scrollbottom').fadeIn();
+    $('.tobottom').fadeIn();
 }

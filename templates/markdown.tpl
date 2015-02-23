@@ -52,8 +52,8 @@ $if(date)$
 $endif$
 </div>
 $endif$
-<a href="#" class="scrolltop">Scroll</a>
-<a href="#end" class="scrollbottom">Scroll</a>
+<a href="#" class="scroll totop">Scroll</a>
+<a href="#end" class="scroll tobottom">Scroll</a>
 $if(toc)$
 <div id="$idprefix$TOC">
 $toc$
