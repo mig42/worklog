@@ -15,5 +15,5 @@ fi
 path=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 for source_file in "${path}"/data/*.md; do
     source_name=$( basename --suffix=.md "${source_file}" )
-/usr/bin/python3 "${path}/src/input.py" "${source_file}" | pandoc -s -f markdown -t html -c /css/github-markdown.css --template="${path}/templates/markdown.tpl" -o "${path}/www/${source_name}.html"
+    /usr/bin/python3 "${path}/src/input.py" "${source_file}" | pandoc -s -f markdown -t html -c /css/github-markdown.css --template="${path}/templates/markdown.tpl" -o "${path}/www/${source_name}.html"
 done
